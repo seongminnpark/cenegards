@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/materialize.min.css">
+		<link rel="stylesheet" href="./browser_action.css">
+</head>
+
+<body>
+	<div class="container" id="mainPopup">
+		<div class="row">
+			<div class="col s12">
+					<h4>Cene Gards</h4>
+			</div>
+		</div>
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">fingerprint</i>
+						<input placeholder="MET, ANGPT1, DUSP1" id="geneNames" type="text">
+						<label for="geneNames">Gene Names</label>
+						<span class="helper-text" data-error="Check your input format" data-success="Woohoo!">Separate names with a comma.</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<i class="material-icons prefix">pets</i>
+						<input placeholder="worm, fruit fly" id="animals" type="text" class="validate">
+						<label for="animals">Animals</label>
+						<span class="helper-text" data-error="Check your input format" data-success="Woohoo!">Separate names with a comma.</span>
+					</div>
+				</div>
+			</form>
+			<div class="row">
+				<div class="col s12 center-align">
+					<button id="fetchButton" class="btn waves-effect waves-light">Fetch
+						<i class="material-icons right">send</i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../js/jquery-3.3.1.min.js"></script>
+	<script src="../../js/materialize.min.js"></script>
+	<script src="./browser_action.js"></script>
+</body>
+
