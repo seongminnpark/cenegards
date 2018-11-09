@@ -34,7 +34,14 @@ const setNeutral = (element) => {
 
 $("#fetchButton").click(() => {
 
-  data = {"message":"eat this"}
+  // Parse input.
+  dnaString = $("#geneNames").val();
+  dnaNames = dnaString.split(',').map(function(s) { return s.trim() });
+
+  animalString = $("#animals").val();
+  animals = animalString.split(',').map(function(s) { return s.trim() });
+
+  data = {"geneNames": dnaNames, "animals": animals}
 
   chrome.runtime.sendMessage(data, function(response) {
     chrome.tabs.create({url: chrome.runtime.getURL('src/results/results.html')});
