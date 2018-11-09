@@ -32,8 +32,10 @@ const setNeutral = (element) => {
 
 // }
 
-$("#submitButton").click(() => {
-  chrome.tabs.create({url: 'browser_action.html'})
+$("#fetchButton").click(() => {
+  chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+    chrome.tabs.create({url: chrome.runtime.getURL('src/results/results.html')});
+  });
 });
 
 $("#geneNames").focusout(() => {

@@ -4,10 +4,14 @@
 //     "sample_setting": "This is how you use Store.js to remember values"
 // });
 
+var resultsTabId = 1283924593;
+var data = {"data": "boo"}
 
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
+chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
+    if (sender.tab) {
+      sendResponse(request);
+    } else {
+      data = request;
+    }
+});
