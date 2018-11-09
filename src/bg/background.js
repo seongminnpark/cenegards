@@ -4,14 +4,15 @@
 //     "sample_setting": "This is how you use Store.js to remember values"
 // });
 
-var resultsTabId = 1283924593;
-var data = {"data": "boo"}
+resultsTabId = 1283924593;
+data = {"init": false}
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if (sender.tab) {
-      sendResponse(request);
+      sendResponse(data);
     } else {
       data = request;
+      sendResponse({});
     }
 });

@@ -1,13 +1,8 @@
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log("gor msg")
-    if (request.greeting == "hello") {
-      sendResponse({farewell: "goodbye"});
-    }
-});
+data = {"init": false}
 
 $(window).on('load', function() {
-  chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-
+  chrome.runtime.sendMessage({}, function(response) {
+    data = response;
+    console.log(data)
   });
 });

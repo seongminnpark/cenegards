@@ -33,7 +33,10 @@ const setNeutral = (element) => {
 // }
 
 $("#fetchButton").click(() => {
-  chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+
+  data = {"message":"eat this"}
+
+  chrome.runtime.sendMessage(data, function(response) {
     chrome.tabs.create({url: chrome.runtime.getURL('src/results/results.html')});
   });
 });
