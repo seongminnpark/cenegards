@@ -44,10 +44,26 @@ $("#geneNames").focusout(() => {
   }
   splitText = trimmedText.split(",");
   for (i in splitText) {
-    if(splitText[i] == "") {
+    if(splitText[i] == "" || splitText[i].includes(" ")) {
       setInvalid($("#geneNames"));
       return;
     }
   }
   setValid($("#geneNames"));
+});
+
+$("#animals").focusout(() => {
+  trimmedText = $("#animals").val().trim().toLowerCase();
+  if(trimmedText == "") {
+    setNeutral($("#animals"));
+    return;
+  }
+  splitText = trimmedText.split(",");
+  for (i in splitText) {
+    if(splitText[i] == "") {
+      setInvalid($("#animals"));
+      return;
+    }
+  }
+  setValid($("#animals"));
 });
